@@ -66,3 +66,17 @@ Uses only `node:test` and `node:assert/strict`, plus Node's built-in process
 utilities for CLI integration tests. Coverage includes normal and empty arrays,
 negative numbers, decimals, malformed JSON, non-array input, non-numeric elements,
 non-finite numbers, overflow, large arrays, and CLI output/error/exit behavior.
+
+## Continuous integration
+
+GitHub Actions runs syntax checks and `npm test` on Node.js 22 and 24, on both
+Ubuntu and Windows. It runs for pull requests targeting any branch, pushes to
+`main`, and manual dispatch. Each matrix job has a 10-minute timeout; newer runs
+cancel superseded runs for the same ref. See the PR Checks tab for results/logs.
+
+No dependency installation or npm cache is needed: the project has no external
+dependencies or lockfile. Official actions are pinned to commit SHAs, checkout
+does not persist credentials, and the workflow token only has `contents: read`.
+The workflow does not merge, publish, or deploy. Requiring these checks before
+merge is a separate repository branch-protection setting and is not enabled by
+this workflow.
