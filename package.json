@@ -1,0 +1,14 @@
+{
+  "name": "json-array-stats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Statistics for a JSON array of finite numbers, using only Node.js built-ins.",
+  "scripts": {
+    "test": "node --test",
+    "start": "node cli.js"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
